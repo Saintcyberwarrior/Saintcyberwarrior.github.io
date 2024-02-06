@@ -34,7 +34,7 @@
   }
 
   /**
-   * Easy on scroll event listener 
+   * Easy on scroll event listener
    */
   const onscroll = (el, listener) => {
     el.addEventListener('scroll', listener)
@@ -239,7 +239,7 @@
   });
 
   /**
-   * Initiate portfolio lightbox 
+   * Initiate portfolio lightbox
    */
   const portfolioLightbox = GLightbox({
     selector: '.portfolio-lightbox'
@@ -263,3 +263,17 @@
   });
 
 })()
+
+document.addEventListener('DOMContentLoaded', function() {
+  const form = document.getElementById('contactForm');
+  const nameInput = document.getElementById('name');
+  const emailInput = document.getElementById('email');
+  const messageInput = document.getElementById('message');
+  const submitBtn = document.getElementById('submitBtn');
+
+  form.addEventListener('input', function() {
+    const isValid = nameInput.value.trim() !== '' && emailInput.checkValidity() && messageInput.value.trim() !== '';
+
+    submitBtn.disabled = !isValid;
+  });
+});
